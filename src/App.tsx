@@ -24,8 +24,8 @@ export default function App() {
     try {
       const data = await fetchViralSynths();
       setPlugins(data);
-    } catch (err) {
-      setError("Failed to fetch viral synths. Please check your connection and API key.");
+    } catch (err: any) {
+      setError(err.message || "Failed to fetch viral synths. Please check your connection and API key.");
       console.error(err);
     } finally {
       setLoading(false);
